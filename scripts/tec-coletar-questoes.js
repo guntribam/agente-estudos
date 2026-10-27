@@ -5,19 +5,21 @@
 // treino usa para descartar questões de cargos muito acima do concurso.
 //
 // Uso: o agente ajusta as duas constantes abaixo e roda o arquivo inteiro na página do TEC
-// pela ferramenta de JavaScript do navegador. Devolve uma lista de questões.
+// pela ferramenta de JavaScript do navegador.
 // - Só ler a questão aberta, sem tocar em nada: QUANTAS = 1 e RESPONDER = false.
 // - Coletar da página de filtro: QUANTAS = n e RESPONDER = true. Para cada questão, marca a
 //   primeira alternativa e resolve (o gabarito só aparece depois de responder), extrai e passa
 //   para a próxima. As respostas entram nas estatísticas do aluno no TEC.
 //
-// Vai para a skill `questoes` quando ela for criada.
-const QUANTAS = 5;
-const RESPONDER = true;
-
+// Devolve { sha256, questoes }. O sha256 é calculado sobre as questões em JSON com as chaves
+// em ordem alfabética; scripts/registrar_questoes.py refaz a conta para garantir que a cópia
+// do resultado para um arquivo não mudou nada.
 await (async () => {
+  const QUANTAS = 5;
+  const RESPONDER = true;
+
   const limpar = (s) => (s || '')
-    .replace(/ /g, ' ')
+    .replace(/\u00a0/g, ' ')
     .replace(/[ \t]+$/gm, '')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
@@ -182,5 +184,14 @@ await (async () => {
       if (!mudou) break;
     }
   }
-  return coletadas;
+
+  const canonico = (v) => Array.isArray(v)
+    ? '[' + v.map(canonico).join(',') + ']'
+    : v && typeof v === 'object'
+      ? '{' + Object.keys(v).sort().map((k) => JSON.stringify(k) + ':' + canonico(v[k])).join(',') + '}'
+      : JSON.stringify(v);
+  const bytes = new TextEncoder().encode(canonico(coletadas));
+  const digest = await crypto.subtle.digest('SHA-256', bytes);
+  const sha256 = [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('');
+  return { sha256, questoes: coletadas };
 })();
