@@ -87,5 +87,3 @@ Login no TEC, ou em qualquer site, é sempre feito pelo aluno. Você nunca digit
 ## Manutenção do modelo
 
 A versão oficial das skills fica em `.agents/skills/`, onde o Codex procura. A pasta `.claude/skills/`, onde o Claude Code procura, é uma cópia gerada por `uv run scripts/sincronizar_skills.py`. Edite só `.agents/skills/` e rode o script depois. O `CLAUDE.md` só importa este arquivo.
-
-A pasta `old/` guarda o histórico do desenho do modelo (o edital da CGU usado como caso de teste, as decisões, os rascunhos). Não use nada dela no atendimento ao aluno.

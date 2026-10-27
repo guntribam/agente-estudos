@@ -21,7 +21,7 @@ São duas falas do aluno. O resto é com você, sem mostrar ids nem arquivos.
 
 ## Passo a passo
 
-1. **Ache o PDF.** Se o aluno não disse onde está, procure PDFs na pasta do projeto, fora de `old/`. Se houver mais de um, ou nenhum, pergunte. Copie o PDF para `estudo/edital.pdf`.
+1. **Ache o PDF.** Se o aluno não disse onde está, procure PDFs na pasta do projeto. Se houver mais de um, ou nenhum, pergunte. Copie o PDF para `estudo/edital.pdf`.
    - Se vierem vários PDFs (edital, anexos, retificação), use o que traz o conteúdo programático.
    - Retificação ainda não é tratada por esta skill. Se o aluno trouxer uma, diga isso e pergunte qual PDF usar.
 2. **Converta para texto:**
