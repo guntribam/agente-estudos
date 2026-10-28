@@ -78,7 +78,10 @@ Depois de obter, marque a fonte como "obtida" no `fontes.md`.
 | ETICA-2.2 | Código de conduta da CGU | link oficial encontrado na busca | combinada |
 ```
 
-Situação: "combinada" (o aluno escolheu, falta obter) ou "obtida" (o `.md` existe).
+Situação:
+- "sugerida": apareceu no caminho, numa busca de questões, e o aluno ainda não decidiu. Antes de obter, confirme com ele; se ele recusar, apague a linha.
+- "combinada": o aluno escolheu, falta obter.
+- "obtida": o `.md` existe.
 
 ## Rigor
 

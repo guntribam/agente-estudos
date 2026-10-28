@@ -58,6 +58,7 @@ Tudo o que é do aluno fica em `estudo/`, que o git ignora:
 | `estudo/fontes.md` | O catálogo de fontes combinado com o aluno. |
 | `estudo/fontes/` | As fontes convertidas para `.md` (uma lei por arquivo, um livro por pasta, um capítulo por arquivo). |
 | `estudo/questoes.jsonl` | As questões do TEC e as criadas no treino, uma por linha. |
+| `estudo/buscas.md` | Como as questões de cada item foram achadas no TEC, para não refazer a busca. |
 | `estudo/coleta.json` | A última coleta do TEC, antes de registrar. |
 | `estudo/rodada.json` | A rodada de treino da vez. |
 | `estudo/respostas.csv` | Uma linha por questão respondida pelo aluno. |

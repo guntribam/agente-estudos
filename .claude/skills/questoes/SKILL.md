@@ -25,7 +25,11 @@ você:   Trouxe 14 questões do Cebraspe sobre conflito de interesses (3.1).
 ## Passo a passo
 
 1. **Item e recorte.** Ache no `estudo/edital.md` o item (ou os itens) do pedido e o recorte que o edital fez. A banca está no cabeçalho.
-2. **O que já existe.** Procure o id do item em `estudo/questoes.jsonl`. A busca no TEC acontece uma vez por item; só volte lá se faltar material.
+2. **O que já existe.** Procure o id do item em `estudo/questoes.jsonl` e a seção dele em `estudo/buscas.md` (formato abaixo). Descobrir o caminho é a parte cara da busca; não refaça o que já foi descoberto.
+   - Já há questões suficientes: não vá ao TEC.
+   - Faltam questões e há receita: refaça a receita, só nos anos que ainda não foram vistos, e pule o que ela diz que não funcionou.
+   - A receita diz que não há questões: conte ao aluno e só busque de novo se ele pedir.
+   - Sem receita: busque do zero, pelos passos abaixo.
 3. **Login.** Abra o TEC e confirme o login pelo texto da página, como mostra o `tec.md`. Sem login, peça ao aluno que entre e espere; você nunca digita senha. Na primeira coleta, avise o aluno em uma frase: para ver o gabarito, o agente responde as questões, e essas respostas entram nas estatísticas dele no TEC.
 4. **Filtros**, na página de filtro de questões:
    - **Assunto:** navegue pela árvore de matérias e assuntos, de cima para baixo. Não use "Pesquisar por nome" para assunto; navegando, você aprende a taxonomia do TEC.
@@ -44,7 +48,33 @@ você:   Trouxe 14 questões do Cebraspe sobre conflito de interesses (3.1).
    - Sem `--apenas`, registra todas as da coleta.
    - Uma questão pode cobrir mais de um item: rode de novo com o outro id, só para essas.
    - Se o script disser que o sha256 não bate, a cópia para o arquivo mudou alguma coisa. Grave de novo a partir do resultado da coleta e registre outra vez.
-10. **Responda em uma ou duas linhas:** quantas questões, de que banca, para que itens, e onde não achou nada.
+10. **Grave a receita** em `estudo/buscas.md`, também quando não achar nada. Se o item já tinha receita, atualize a seção dele em vez de criar outra.
+11. **Fonte achada no caminho.** Se a busca revelar uma fonte que serve ao item (uma portaria citada nas questões, um manual do órgão), confirme o endereço oficial numa busca na web e anote no `estudo/fontes.md` com a situação "sugerida". A escolha continua com o aluno, na skill `fontes`.
+12. **Responda em uma ou duas linhas:** quantas questões, de que banca, para que itens, e onde não achou nada. Se anotou uma fonte sugerida, diga numa frase qual é e pergunte se ele quer usá-la.
+
+## Formato do buscas.md
+
+Uma seção por item, com o caminho que levou às questões, para que a próxima busca não comece do zero:
+
+```markdown
+# Buscas no TEC
+
+## ETICA-3.1
+
+- Última busca: 2026-10-27
+- Banca: CEBRASPE (CESPE)
+- Anos vistos: 2019 a 2026
+- Árvore: Ética no Serviço Público > Conflito de Interesses
+- Enunciados: "conflito de interesses", com a matéria Direito Administrativo
+- Resultado: 14 questões registradas, de 31 vistas
+- Não funcionou: "informação privilegiada" no enunciado só trouxe questões de mercado de capitais
+- Fontes achadas: nenhuma
+```
+
+- Escreva o caminho da árvore com os nomes exatos que aparecem no TEC, do nível de cima para baixo.
+- "Não funcionou" vale tanto quanto o caminho certo: evita repetir um beco sem saída.
+- Item sem questões ganha seção mesmo assim, com "Resultado: nenhuma questão" e o que foi tentado.
+- Uma busca que serviu a vários itens: a mesma receita em cada seção, cada uma com o próprio resultado.
 
 ## Rigor
 
